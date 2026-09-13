@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>First Money Mission</title>
+<meta name="description" content="Turn your skills into a first-customer execution plan.">
+<style>
+:root{--bg:#071018;--card:#0e1a25;--card2:#122231;--line:#25384a;--txt:#f8fbff;--mut:#9fb0c2;--gold:#ffd166;--green:#78e0a5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0,#152839 0,#071018 43%);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1120px;margin:auto;padding:22px}.nav{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:950;letter-spacing:.04em}.nav a{color:var(--mut);text-decoration:none;font-size:14px}.hero{padding:76px 0 38px;text-align:center}.eyebrow{font-size:12px;color:var(--gold);font-weight:900;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(42px,8vw,78px);line-height:.96;max-width:980px;margin:12px auto 18px}.hero p{max-width:760px;margin:auto;color:var(--mut);font-size:19px;line-height:1.6}.cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:25px}
+button,.btn{border:0;border-radius:14px;padding:14px 18px;font-weight:900;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block}.primary{background:var(--gold);color:#171208}.secondary{background:#132331;color:white;border:1px solid var(--line)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 44px}.feature,.card{background:rgba(14,26,37,.94);border:1px solid var(--line);border-radius:20px;padding:20px}.feature b{display:block;margin-bottom:6px}.feature span,.muted{color:var(--mut);line-height:1.5}.builder{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}label{display:block;margin:13px 0 6px;font-size:13px}input,textarea,select{width:100%;background:#07111a;border:1px solid #30475d;color:white;border-radius:12px;padding:13px;font-size:15px}textarea{min-height:100px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.full{width:100%;margin-top:16px}.hidden{display:none}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.metric{background:#08131d;border:1px solid var(--line);border-radius:13px;padding:12px}.metric b{display:block;font-size:18px}.metric small{color:var(--mut)}.section{margin-top:17px;padding-top:16px;border-top:1px solid var(--line)}.box{background:#08131d;border:1px dashed #35516a;border-radius:13px;padding:14px;white-space:pre-wrap;line-height:1.6}.route{padding:12px;border:1px solid var(--line);border-radius:12px;margin:8px 0}.day{display:grid;grid-template-columns:42px 1fr;gap:10px;margin:10px 0}.num{width:42px;height:42px;border-radius:12px;background:#142638;display:grid;place-items:center;color:var(--gold);font-weight:900}
+.paywall{background:linear-gradient(135deg,#152637,#0e1a25);border:1px solid #3a4e62;border-radius:20px;padding:24px;text-align:center;margin-top:18px}.price{font-size:44px;font-weight:950}.tiny{font-size:12px;color:var(--mut);line-height:1.5}.status{font-size:12px;color:var(--green);margin-top:8px}.footer{text-align:center;color:var(--mut);font-size:12px;padding:42px 0}@media(max-width:840px){.builder,.features,.row{grid-template-columns:1fr}.hero{padding-top:48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav"><div class="brand">FIRST MONEY MISSION</div><a href="#builder">Try demo</a></nav>
+
+<section class="hero">
+<div class="eyebrow">Skill → Offer → Outreach → First Customer</div>
+<h1>Turn what you know into a money mission.</h1>
+<p>Not another list of side-hustle ideas. Build one realistic micro-offer, a proof sample, a customer plan, ready messages and a 7-day execution mission.</p>
+<div class="cta"><a class="btn primary" href="#builder">Build free demo</a><button class="secondary" onclick="buy()">Unlock full mission — $1.99</button></div>
+<div id="status" class="status"></div>
+</section>
+
+<section class="features">
+<div class="feature"><b>One focused offer</b><span>No endless idea lists. Pick one small outcome customers can understand.</span></div>
+<div class="feature"><b>Ready-to-send outreach</b><span>Get a first message, follow-up and price-objection reply.</span></div>
+<div class="feature"><b>7-day execution</b><span>Turn planning into action with a simple daily mission.</span></div>
+</section>
+
+<section id="builder" class="builder">
+<div class="card">
+<div class="eyebrow">Build your mission</div>
+<label>Your skills</label><textarea id="skills" placeholder="Typing, translation, Canva, Excel, video editing..."></textarea>
+<div class="row"><div><label>Country</label><input id="country" placeholder="United Arab Emirates"></div><div><label>Languages</label><input id="languages" placeholder="English, Urdu"></div></div>
+<div class="row"><div><label>Daily time</label><select id="time"><option>1 hour/day</option><option>2 hours/day</option><option selected>3 hours/day</option><option>5+ hours/day</option></select></div><div><label>Budget</label><select id="budget"><option selected>$0</option><option>$1–$10</option><option>$11–$50</option></select></div></div>
+<div class="row"><div><label>Income target</label><input id="target" value="$100"></div><div><label>Experience</label><select id="experience"><option>Beginner</option><option>Some experience</option><option>Experienced</option></select></div></div>
+<button class="primary full" onclick="generate()">Build My Mission</button>
+<p class="tiny">No guaranteed-income claims. Results are planning guidance, not promises.</p>
+</div>
+
+<div class="card">
+<div class="eyebrow">Mission preview</div>
+<div id="blank"><h2>Your result appears here.</h2><p class="muted">Use the demo now. Real-AI generation can be connected on the server later without exposing private keys in the browser.</p></div>
+<div id="result" class="hidden">
+<h2 id="title"></h2>
+<div class="metrics"><div class="metric"><b id="price"></b><small>STARTER PRICE</small></div><div class="metric"><b>24–48h</b><small>TEST WINDOW</small></div><div class="metric"><b>1 route</b><small>FOCUS</small></div></div>
+<div class="section"><h3>Best routes to test</h3><div id="routes"></div></div>
+<div class="section"><h3>Your micro-offer</h3><div id="offer" class="box"></div></div>
+<div class="section"><h3>Portfolio sample</h3><div id="sample" class="box"></div></div>
+<div class="section"><h3>Target customer</h3><div id="customer" class="box"></div></div>
+</div>
+</div>
+</section>
+
+<section id="premium" class="hidden">
+<div class="builder" style="margin-top:18px">
+<div class="card"><div class="eyebrow">Outreach</div><h2>Ready messages</h2><h3>First message</h3><div id="firstMessage" class="box"></div><h3>Follow-up</h3><div id="followUp" class="box"></div><h3>Price objection</h3><div id="objection" class="box"></div></div>
+<div class="card"><div class="eyebrow">7-day execution</div><h2>Your mission</h2><div id="days"></div></div>
+</div>
+</section>
+
+<div class="paywall">
+<div class="eyebrow">Commercial model</div>
+<div class="price">$1.99</div>
+<h2>One full personalized mission</h2>
+<p class="muted">A real checkout link can be connected through the server configuration. Until then, this button stays in demo mode.</p>
+<button class="primary" onclick="buy()">Unlock full mission</button>
+</div>
+
+<div class="footer">V4 launch-ready starter • Demo logic works now • Checkout and real-AI connections require your own service accounts.</div>
+</div>
+<script>
+let checkoutUrl="";
+fetch("/api/config").then(r=>r.json()).then(c=>{
+ checkoutUrl=c.checkoutUrl||"";
+ if(c.aiConnected) document.getElementById("status").textContent="AI backend connected";
+}).catch(()=>{});
+
+async function generate(){
+ const skills=document.getElementById("skills").value.trim();
+ if(!skills){alert("Enter at least one skill.");return}
+ const payload={
+  skills,
+  country:document.getElementById("country").value.trim(),
+  languages:document.getElementById("languages").value.trim(),
+  time:document.getElementById("time").value,
+  budget:document.getElementById("budget").value,
+  target:document.getElementById("target").value.trim(),
+  experience:document.getElementById("experience").value
+ };
+ const r=await fetch("/api/mission",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
+ const p=await r.json();
+ if(!r.ok){alert(p.error||"Could not build mission.");return}
+ document.getElementById("blank").classList.add("hidden");
+ document.getElementById("result").classList.remove("hidden");
+ document.getElementById("premium").classList.remove("hidden");
+ document.getElementById("title").textContent=p.title;
+ document.getElementById("price").textContent=p.price;
+ document.getElementById("routes").innerHTML=p.routes.map((x,i)=>`<div class="route"><b>${i+1}. ${x}</b></div>`).join("");
+ document.getElementById("offer").textContent=p.offer;
+ document.getElementById("sample").textContent=p.sample;
+ document.getElementById("customer").textContent=p.customer;
+ document.getElementById("firstMessage").textContent=p.firstMessage;
+ document.getElementById("followUp").textContent=p.followUp;
+ document.getElementById("objection").textContent=p.objection;
+ document.getElementById("days").innerHTML=p.days.map((x,i)=>`<div class="day"><div class="num">${i+1}</div><div>${x}</div></div>`).join("");
+ setTimeout(()=>document.getElementById("result").scrollIntoView({behavior:"smooth"}),80);
+}
+function buy(){
+ if(checkoutUrl){window.location.href=checkoutUrl}
+ else alert("Checkout is not connected yet. Add CHECKOUT_URL in the server .env file when your payment account is ready.");
+}
+</script>
+</body></html>
