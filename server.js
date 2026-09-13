@@ -1,9 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const crypto = require("crypto");
+
 
 const app = express();
-app.use(express.json({limit:"1mb"}));
+app.use(express.json({limit:"1mb",verify:(req,res,buf)=>{req.rawBody=buf;}}));
 app.use(express.static(__dirname));
 
 app.get("/api/config",(req,res)=>{
@@ -100,6 +102,10 @@ function buildDemoMission(i){
 }
 app.post("/api/ziina-webhook", (req, res) => {
   const event = req.body;
+  const signature = req.get("X-Hmac-Signature");
+  const secret = process.env.ZIINA_WEBHOOK_SECRET;
+  const expected = crypto.createHmac("sha256", secret).update(req.rawBody).digest("hex");
+  if (!signature || signature.length !== expected.length || !crypto.timingSafeEqual(Buffer.from(signature, "utf8"), Buffer.from(expected, "utf8"))) return res.status(401).json({ error: "Invalid signature" });
 
   console.log("Ziina webhook received:", event);
 
