@@ -98,6 +98,22 @@ function buildDemoMission(i){
     country
   };
 }
+app.post("/api/ziina-webhook", (req, res) => {
+  const event = req.body;
 
+  console.log("Ziina webhook received:", event);
+
+  if (
+    event.event === "payment_intent.status.updated" &&
+    event.data &&
+    event.data.status === "completed"
+  ) {
+    console.log("PAYMENT COMPLETED:", event.data.id);
+
+    // Full mission unlock logic yahan add karenge next step mein
+  }
+
+  res.status(200).json({ received: true });
+});
 app.get("*",(req,res)=>res.sendFile(path.join(__dirname,"public","index.html")));
 app.listen(process.env.PORT || 3000,()=>console.log("First Money Mission V4 running."));
